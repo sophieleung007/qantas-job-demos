@@ -4,6 +4,10 @@ import os
 app = Flask(__name__)
 app.secret_key = os.environ.get("FLASK_SECRET_KEY", "qantas_demo")
 
+@app.route("/")
+def home():
+    return redirect(url_for("login"))
+
 @app.route("/login/<username>")
 def login(username):
     session["user"] = username
