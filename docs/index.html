@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html><head>
+    <title>Qantas Flight Status</title>
+    <style>
+        .qantas-red { color: #e60000; }
+        .status-card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px;
+            border-radius: 8px;
+            width: 300px;
+        }
+        button {
+            background-color: #e60000;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head><body>
+    <h1>Flight <span class="qantas-red">Status</span></h1>
+    <button onclick="loadFlights()">Refresh Flights</button>
+    <div id="flightContainer"></div>
+    <script>
+        function loadFlights() {
+            const flights = [
+                { number: "QF101", from: "SYD", to: "MEL", status: "On Time" },
+                { number: "QF202", from: "MEL", to: "BNE", status: "Delayed" }
+            ];
+            let html = "";
+            flights.forEach(flight => {
+                html += `
+                <div class="status-card">
+                    <h2>${flight.number}</h2>
+                    <p>${flight.from} → ${flight.to}</p>
+                    <p>Status: <strong>${flight.status}</strong></p>
+                </div>`;
+            });
+            document.getElementById("flightContainer").innerHTML = html;
+        }
+    </script>
+</body></html>
