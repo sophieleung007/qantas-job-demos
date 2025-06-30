@@ -3,6 +3,7 @@ services:
     name: qantas-flask-app
     env: python
     buildCommand: "pip install -r requirements.txt"
-    startCommand: "./start.sh"
+    startCommand: "python app.py"
+    rootDir: .
     branch: main
     region: singapore
